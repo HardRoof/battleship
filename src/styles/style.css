@@ -1,0 +1,66 @@
+@import url(./normalize.css);
+@font-face {
+  font-family: captureIt;
+  src: url(../fonts/Capture\ it.ttf); /* Update it */
+}
+
+:root {
+  font-size: 62.5%; /* To turn 1rem into 10px */
+  --light-black-color: #393939;
+  --shadow: 1px 2px 4px rgb(0 0 0 / 51%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+p,
+h1 {
+  margin: 0;
+}
+
+body {
+  font-family: sans-serif, system-ui, -apple-system, "Segoe UI", "Open Sans", "Helvetica Neue";
+  font-size: 1.6rem; /* To turn 1rem into 10px */
+  color: var(--light-black-color);
+  background: gray url(../images/brian-mcmahon-Dwy-1V6qesM-unsplash.jpeg) no-repeat top / cover;
+  height: 100vh;
+}
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  gap: 6rem;
+}
+
+/* Header */
+header {
+  font-family: captureIt;
+  font-size: 6rem;
+  color: #e1e1e1;
+}
+
+.homepage__btn {
+  background: url(../images/play-button.svg) no-repeat center / cover;
+  width: 12rem;
+  height: 12rem;
+  padding: 0;
+  border: solid 8px #e1e1e1;
+  cursor: pointer;
+  animation: homepage__btn 1.8s linear infinite;
+}
+
+@keyframes homepage__btn {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
