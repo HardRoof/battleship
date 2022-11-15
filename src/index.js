@@ -56,7 +56,26 @@ class DOM {
   createStrategyGameBoard() {
     this.createSquares();
     let contenders = players();
-    this.selectBoats(contenders.carrier, "horizontal");
+    Object.defineProperties(this, {
+      boatToPlace: {
+        value: contenders.carrier,
+        writable: true,
+      },
+      boatToPlaceDirection: {
+        value: "horizontal",
+        writable: true,
+      },
+    });
+    this.selectBoats(this.boatToPlace, this.boatToPlaceDirection);
+    const rotateButton = document.getElementsByClassName("strategyPage__rotateBtn")[0];
+    rotateButton.addEventListener("click", (e) => {
+      while (e.target.previousElementSibling.firstChild) {
+        e.target.previousElementSibling.removeChild(e.target.previousElementSibling.firstChild);
+      }
+      this.createSquares();
+      this.boatToPlaceDirection = this.boatToPlaceDirection == "horizontal" ? "vertical" : "horizontal";
+      this.selectBoats(this.boatToPlace, this.boatToPlaceDirection);
+    });
   }
 
   selectBoats(boat, direction) {
